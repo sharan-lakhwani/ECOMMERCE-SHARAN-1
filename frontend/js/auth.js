@@ -1,71 +1,77 @@
 function alertCustom(title, msg, type) {
-	swal(title, msg, type);
+  swal(title, msg, type);
 }
 
 const signup = async (e) => {
-	e.preventDefault();
+  e.preventDefault();
 
-	const emailInput = document.getElementById("email-signup").value;
-	const passwordInput = document.getElementById("password-signup").value;
-	const nameInput = document.getElementById("name").value;
-	const countryInput = document.getElementById("country").value;
+  const emailInput = document.getElementById("email-signup").value;
+  const passwordInput = document.getElementById("password-signup").value;
+  const nameInput = document.getElementById("name").value;
+  const countryInput = document.getElementById("country").value;
 
-	try {
-		const response = await fetch("http://localhost:3000/api/auth/signup", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				email: emailInput,
-				password: passwordInput,
-				name: nameInput,
-				country: countryInput,
-			}),
-		});
+  try {
+    const response = await fetch(
+      "https://ecommerce-sharan-1.onrender.com/api/auth/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailInput,
+          password: passwordInput,
+          name: nameInput,
+          country: countryInput,
+        }),
+      }
+    );
 
-		//
+    //
 
-		const data = await response.json();
+    const data = await response.json();
 
-		if (!response.ok) {
-			return alertCustom("Hubo un error", data.message, "error");
-		}
+    if (!response.ok) {
+      return alertCustom("Hubo un error", data.message, "error");
+    }
 
-		alertCustom("Listo", data.message, "success");
-	} catch (error) {
-		return alertCustom("Hubo un error", "Lo siento", "error");
-	}
+    alertCustom("Listo", data.message, "success");
+  } catch (error) {
+    return alertCustom("Hubo un error", "Lo siento", "error");
+  }
 };
 
 const signin = async (e) => {
-	e.preventDefault();
+  e.preventDefault();
 
-	console.log("signin");
+  console.log("signin");
 
-	const emailInput = document.getElementById("email-signin").value;
-	const passwordInput = document.getElementById("password-signin").value;
+  const emailInput = document.getElementById("email-signin").value;
+  const passwordInput = document.getElementById("password-signin").value;
 
-	try {
-		const response = await fetch("http://localhost:3000/api/auth/signin", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				email: emailInput,
-				password: passwordInput,
-			}),
-		});
+  try {
+    const response = await fetch(
+      "https://ecommerce-sharan-1.onrender.com/api/auth/signin",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailInput,
+          password: passwordInput,
+        }),
+      }
+    );
 
-		const data = await response.json();
+    const data = await response.json();
 
-		if (!response.ok) {
-			return alertCustom("Hubo un error", data.message, "error");
-		}
+    if (!response.ok) {
+      return alertCustom("Hubo un error", data.message, "error");
+    }
 
-		alertCustom("Listo", data.message, "success");
-	} catch (error) {
-		return alertCustom("Hubo un error", "Lo siento", "error");
-	}
+    alertCustom("Listo", data.message, "success");
+  } catch (error) {
+    return alertCustom("Hubo un error", "Lo siento", "error");
+  }
 };

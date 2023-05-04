@@ -1,19 +1,19 @@
 let allProducts = [];
 function alertCustom(title, msg, type) {
-	swal(title, msg, type);
+  swal(title, msg, type);
 }
 let productsSearch = [];
 
 const copyId = (id) => {
-	navigator.clipboard.writeText(id);
-	alertCustom("Listo", "ID copiado", "success");
+  navigator.clipboard.writeText(id);
+  alertCustom("Listo", "ID copiado", "success");
 };
 
 const renderProducts = (products) => {
-	let productsHTML = "";
+  let productsHTML = "";
 
-	products.forEach((product) => {
-		productsHTML += `<div class="flex flex-col relative items-center gap-2 shadow rounded-md">
+  products.forEach((product) => {
+    productsHTML += `<div class="flex flex-col relative items-center gap-2 shadow rounded-md">
             <img
                 src=${product.image}
                 alt="imagen"
@@ -36,48 +36,48 @@ const renderProducts = (products) => {
                 </button>
             </div>
         </div>`;
-	});
+  });
 
-	document.getElementById("container_product").innerHTML = productsHTML;
+  document.getElementById("container_product").innerHTML = productsHTML;
 };
 
 const fetchAllProducts = async () => {
-	const verifyNew = localStorage.getItem("notNew");
+  const verifyNew = localStorage.getItem("notNew");
 
-	const response = await fetch(
-		`http://localhost:3000/api/products/?initial=${
-			verifyNew === null ? "true" : verifyNew
-		}`
-	);
-	const rta = await response.json();
-	allProducts = rta;
-	renderProducts(rta);
+  const response = await fetch(
+    `https://ecommerce-sharan-1.onrender.com/api/products/?initial=${
+      verifyNew === null ? "true" : verifyNew
+    }`
+  );
+  const rta = await response.json();
+  allProducts = rta;
+  renderProducts(rta);
 };
 
 const searchProducts = () => {
-	const keyword = document.getElementById("search").value;
+  const keyword = document.getElementById("search").value;
 
-	const filteredProducts = allProducts.filter((product) => {
-		if (keyword === "") return true;
+  const filteredProducts = allProducts.filter((product) => {
+    if (keyword === "") return true;
 
-		return product.name.toLowerCase().includes(keyword.toLowerCase().trim());
-	});
+    return product.name.toLowerCase().includes(keyword.toLowerCase().trim());
+  });
 
-	console.log(filteredProducts);
+  console.log(filteredProducts);
 
-	renderProducts(filteredProducts);
-	carritoAddToEvent();
+  renderProducts(filteredProducts);
+  carritoAddToEvent();
 };
 
 window.onload = async () => {
-	await fetchAllProducts();
-	localStorage.setItem("notNew", false);
+  await fetchAllProducts();
+  localStorage.setItem("notNew", false);
 
-	const storage = JSON.parse(localStorage.getItem("cart"));
-	if (storage) {
-		carrito = storage;
-		renderToCartList(storage);
-	}
+  const storage = JSON.parse(localStorage.getItem("cart"));
+  if (storage) {
+    carrito = storage;
+    renderToCartList(storage);
+  }
 
-	carritoAddToEvent();
+  carritoAddToEvent();
 };
