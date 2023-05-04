@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="./js/index.js"></script>
+    <title>Ecomerce</title>
+    <link href="./styles/index.css" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://w7.pngwing.com/pngs/416/842/png-transparent-website-development-web-design-web-page-favicon-web-design-web-design-globe-symmetry.png"
+    />
+  </head>
+  <body>
+    <div
+      class="flex justify-between md:justify-evenly md:px-12 p-3 items-center sticky top-0 z-40 bg-white shadow-md"
+    >
+      <span class="font-bold text-xl"> Ecomerce </span>
+      <div class="md:flex hidden gap-4 items-center">
+        <a href="/index.html"> Inicio </a>
+        <a href="/auth.html"> Iniciar sesión </a>
+        <a href="/panel.html"> Panel de administrador </a>
+      </div>
+      <div class="flex gap-3 items-center">
+        <div class="cursor-pointer" onclick="showCart(this)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-bag"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
+            />
+          </svg>
+        </div>
+        <div id="bar" class="md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="list-cart-all"
+      class="fixed hidden top-0 right-0 mt-12 h-full z-50 w-3/4 md:w-1/2 xl:w-1/4 bg-white border-l p-3"
+    >
+      <p class="text-xl text-center font-medium text-gray-600">
+        Lista de tus productos
+      </p>
+
+      <div
+        class="container_cart flex p-2 flex-col gap-4 items-center w-full"
+      ></div>
+      <div class="flex text-xl p-4 flex-col gap-2">
+        <h4>Total: $<span class="price-total">0</span></h4>
+      </div>
+    </div>
+
+    <div class="max-w-5xl my-12 mx-auto">
+      <h2 class="text-3xl font-bold text-stone-700 text-center">
+        Todos los productos
+      </h2>
+      <div
+        class="flex relative flex-col items-center justify-center w-3/4 mx-auto max-w-5xl mt-12"
+      >
+        <img
+          src="./images/icons/search.png"
+          class="w-5 h-5 border absolute right-0 cursor-pointer mr-2"
+        />
+        <input
+          type="text"
+          id="search"
+          onkeyup="searchProducts()"
+          placeholder="Busca tu producto"
+          class="w-full px-10 py-2 rounded-md bg-gray-50 shadow"
+        />
+      </div>
+      <div
+        id="container_product"
+        class="flex flex-wrap justify-center my-4 gap-5 items-center"
+      ></div>
+    </div>
+    <script>
+      function showCart(x) {
+        if (document.getElementById("list-cart-all").style.display == "block") {
+          document.getElementById("list-cart-all").style.display = "none";
+        } else {
+          document.getElementById("list-cart-all").style.display = "block";
+        }
+      }
+    </script>
+    <script src="./js/carrito.js"></script>
+  </body>
+</html>

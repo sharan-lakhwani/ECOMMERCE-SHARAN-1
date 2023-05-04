@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link href="./styles/index.css" rel="stylesheet" />
+    <script src="./js/index.js"></script>
+    <script src="./js/panel.js"></script>
+    <title>Ecomerce</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://w7.pngwing.com/pngs/416/842/png-transparent-website-development-web-design-web-page-favicon-web-design-web-design-globe-symmetry.png"
+    />
+  </head>
+  <body class="">
+    <img
+      src="../images/portada.png"
+      class="w-full h-screen object-cover z-0 absolute"
+    />
+
+    <div class="relative z-10 text-white bg-black bg-opacity-50 w-full p-3">
+      <h1 class="text-5xl text-center p-4 font-light">MEMBERS' ZONE</h1>
+      <p class="text-sm text-center text-yellow-400">JOIN THE COMMUNITY! |</p>
+      <p class="text-sm text-center text-yellow-400 p-3">BE A SHARANIST. |</p>
+    </div>
+
+    <div class="relative z-10 my-24 flex justify-center w-full">
+      <div
+        class="flex flex-col md:flex-row justify-center gap-4 items-center w-full"
+      >
+        <div class="bg-white p-4 w-full rounded-md max-w-lg">
+          <h4 class="text-2xl font-bold text-center text-gray-800">Sign Up</h4>
+          <div>
+            <form class="flex flex-col w-full gap-5">
+              <input
+                type="text"
+                id="email-signup"
+                placeholder="Email"
+                class="w-full px-4 py-2 rounded-md bg-gray-50 shadow"
+              />
+              <input
+                type="password"
+                id="password-signup"
+                placeholder="Password"
+                class="w-full px-4 py-2 rounded-md bg-gray-50 shadow"
+              />
+              <input
+                type="text"
+                id="name"
+                placeholder="Name"
+                class="w-full px-4 py-2 rounded-md bg-gray-50 shadow"
+              />
+              <input
+                type="text"
+                id="country"
+                placeholder="Country"
+                class="w-full px-4 py-2 rounded-md bg-gray-50 shadow"
+              />
+              <button
+                onclick="signup(event)"
+                class="text-white px-4 py-2 bg-black rounded-md"
+              >
+                Sign up
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="bg-white h-full p-4 w-full rounded-md max-w-lg">
+          <h4 class="text-2xl font-bold text-center text-gray-800">Sign In</h4>
+          <div class="flex flex-col w-full gap-5">
+            <input
+              type="text"
+              id="email-signin"
+              placeholder="Email"
+              class="w-full px-4 py-2 rounded-md bg-gray-50 shadow"
+            />
+            <input
+              type="password"
+              id="password-signin"
+              placeholder="Password"
+              class="w-full px-4 py-2 rounded-md bg-gray-50 shadow"
+            />
+
+            <button
+              onclick="signin(event)"
+              class="text-white px-4 py-2 bg-black rounded-md"
+            >
+              Sign in
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bottom-0 md:absolute text-xs md:text-lg z-10 b w-full bg-black bg-opacity-50 text-white p-12"
+    >
+      <div class="flex flex-col md:flex-row gap-5 justify-evenly items-center">
+        <a href="/"> PRODUCTS </a>
+        <a href="/panel.html"> ADMIN PANEL </a>
+        <a href="/"> ABOUT US </a>
+        <div class="flex gap-3 md:gap-6 items-center">
+          FOLLOW US:
+          <a
+            target="_blank"
+            referrerpolicy="no-referrer"
+            href="https://www.instagram.com"
+          >
+            <img src="../images/icons/instagram.png" class="w-6 h-6" />
+          </a>
+
+          <a
+            referrerpolicy="no-referrer"
+            target="_blank"
+            href="https://www.youtube.com"
+          >
+            <img src="../images/icons/youtube.png" class="w-6 h-6" />
+          </a>
+          <a
+            referrerpolicy="no-referrer"
+            target="_blank"
+            href="https://www.whatsapp.com"
+          >
+            <img src="../images/icons/whatsapp.png" class="w-6 h-6" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/auth.js"></script>
+  </body>
+</html>
